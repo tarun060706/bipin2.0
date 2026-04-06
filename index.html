@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Wheels Thrift — Sustainable Style, Timeless Drip</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+/* ─── CSS Variables ─── */
+:root {
+  --bg: #F5F3EF;
+  --text: #1A1A1A;
+  --text-muted: #5C5C5C;
+  --green: #6B8E6B;
+  --brown: #8B6F47;
+  --cta: #F4A261;
+  --card: #FFFFFF;
+  --border: #E5E5E5;
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-impact: 'Bebas Neue', sans-serif;
+}
+
+/* ─── Reset & Base ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+button { cursor: pointer; border: none; outline: none; background: none; font-family: inherit; }
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--green); border-radius: 3px; }
+
+/* ─── Grain overlay ─── */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999; opacity: 0.35;
+}
+
+/* ─── NAVBAR ─── */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5%;
+  height: 68px;
+  background: rgba(245,243,239,0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(229,229,229,0.5);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.navbar.scrolled {
+  background: rgba(245,243,239,0.92);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.07);
+}
+.nav-logo {
+  font-family: var(--font-impact);
+  font-size: 1.7rem;
+  letter-spacing: 3px;
+  color: var(--text);
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-logo span { color: var(--green); }
+.nav-logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cta); display: inline-block; margin-bottom: 2px; }
+.nav-links {
+  display: flex; gap: 2rem; list-style: none;
+}
+.nav-links li a {
+  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+  color: var(--text-muted); text-transform: uppercase;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links li a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 1.5px; background: var(--green);
+  transition: width 0.3s;
+}
+.nav-links li a:hover { color: var(--text); }
+.nav-links li a:hover::after { width: 100%; }
+.nav-actions { display: flex; gap: 1rem; align-items: center; }
+.nav-icon-btn {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(107,142,107,0.1);
+  color: var(--text); font-size: 0.9rem;
+  transition: background 0.2s, transform 0.2s;
+}
+.nav-icon-btn:hover { background: var(--green); color: #fff; transform: scale(1.08); }
+.nav-hamburger { display: none; font-size: 1.3rem; cursor: pointer; color: var(--text); }
+
+/* ─── Mobile Nav ─── */
+.mobile-nav {
+  display: none; position: fixed; top: 68px; left: 0; right: 0;
+  background: rgba(245,243,239,0.98); backdrop-filter: blur(20px);
+  z-index: 999; padding: 1.5rem 5%;
+  flex-direction: column; gap: 1rem;
+  border-bottom: 1px solid var(--border);
+  transform: translateY(-100%); transition: transform 0.35s cubic-bezier(.4,0,.2,1);
+}
+.mobile-nav.open { transform: translateY(0); display: flex; }
+.mobile-nav a { font-size: 1rem; font-weight: 500; color: var(--text); padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+
+/* ─── HERO SECTION ─── */
+#hero {
+  position: relative; width: 100%; height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(160deg, #F0EDE6 0%, #E8E3D8 40%, #EDE9E1 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-bg-circle {
+  position: absolute; border-radius: 50%;
+  background: radial-gradient(circle, rgba(107,142,107,0.12) 0%, transparent 70%);
+  animation: pulseBg 6s ease-in-out infinite;
+}
+.hero-bg-circle:nth-child(1) { width: 600px; height: 600px; top: -100px; left: -100px; }
+.hero-bg-circle:nth-child(2) { width: 400px; height: 400px; bottom: -80px; right: -60px; animation-delay: -3s; background: radial-gradient(circle, rgba(139,111,71,0.1) 0%, transparent 70%); }
+@keyframes pulseBg { 0%,100% { opacity: 0.6; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
+
+/* Floating clothes */
+.floating-items {
+  position: absolute; inset: 0; pointer-events: none;
+}
+.float-item {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+  transition: filter 0.3s;
+  animation: floatItem linear infinite;
+}
+/* hover glow only — no clicks */
+.float-item:hover {
+  filter: brightness(1.06) drop-shadow(0 0 18px rgba(107,142,107,0.45));
+  transform-origin: center;
+}
+@keyframes floatItem {
+  0%   { transform: translateY(0px) translateX(0px) rotate(var(--rot)); }
+  25%  { transform: translateY(var(--drift-y1)) translateX(var(--drift-x1)) rotate(calc(var(--rot) + 1.5deg)); }
+  50%  { transform: translateY(var(--drift-y2)) translateX(var(--drift-x2)) rotate(var(--rot)); }
+  75%  { transform: translateY(var(--drift-y1)) translateX(calc(var(--drift-x1) * -0.5)) rotate(calc(var(--rot) - 1.5deg)); }
+  100% { transform: translateY(0px) translateX(0px) rotate(var(--rot)); }
+}
+
+/* Each clothing item — positions & sizes */
+.fi-1  { width:160px; top:8%;  left:5%;  --rot:-4deg; --drift-y1:-22px; --drift-y2:18px; --drift-x1:12px; --drift-x2:-8px; animation-duration:7s; animation-delay:0s; }
+.fi-2  { width:140px; top:5%;  left:25%; --rot:3deg;  --drift-y1:18px;  --drift-y2:-14px; --drift-x1:-10px; --drift-x2:15px; animation-duration:8.5s; animation-delay:-2s; }
+.fi-3  { width:170px; top:10%; right:22%;--rot:-2deg; --drift-y1:-16px; --drift-y2:20px; --drift-x1:8px; --drift-x2:-12px; animation-duration:9s; animation-delay:-4s; }
+.fi-4  { width:150px; top:6%;  right:5%; --rot:5deg;  --drift-y1:20px;  --drift-y2:-18px; --drift-x1:-14px; --drift-x2:10px; animation-duration:7.5s; animation-delay:-1s; }
+.fi-5  { width:145px; bottom:12%; left:4%;  --rot:-6deg; --drift-y1:16px; --drift-y2:-20px; --drift-x1:10px; --drift-x2:-8px; animation-duration:8s; animation-delay:-3s; }
+.fi-6  { width:135px; bottom:10%; left:22%; --rot:4deg; --drift-y1:-18px; --drift-y2:14px; --drift-x1:-12px; --drift-x2:16px; animation-duration:9.5s; animation-delay:-5s; }
+.fi-7  { width:155px; bottom:8%; right:20%; --rot:-3deg; --drift-y1:14px; --drift-y2:-16px; --drift-x1:10px; --drift-x2:-10px; animation-duration:7.8s; animation-delay:-2.5s; }
+.fi-8  { width:148px; bottom:12%; right:4%; --rot:6deg; --drift-y1:-20px; --drift-y2:18px; --drift-x1:-8px; --drift-x2:12px; animation-duration:8.2s; animation-delay:-1.5s; }
+
+.float-item img {
+  width: 100%; height: 100%; object-fit: cover;
+  pointer-events: none; -webkit-user-drag: none;
+}
+
+/* Hero center text */
+.hero-content {
+  position: relative; z-index: 10;
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 1rem;
+}
+.hero-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.6); backdrop-filter: blur(12px);
+  border: 1px solid rgba(107,142,107,0.3);
+  border-radius: 100px; padding: 6px 18px;
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--green);
+  animation: fadeSlideUp 0.8s ease both; animation-delay: 0.2s;
+}
+.hero-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cta); }
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  font-weight: 900;
+  line-height: 0.95;
+  color: var(--text);
+  animation: fadeSlideUp 0.9s cubic-bezier(.22,1,.36,1) both;
+  animation-delay: 0.35s;
+}
+.hero-title .line2 { font-style: italic; color: var(--green); display: block; }
+.hero-tagline {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: var(--text-muted); letter-spacing: 0.06em;
+  animation: fadeSlideUp 0.9s ease both; animation-delay: 0.55s;
+}
+.hero-cta-row {
+  display: flex; gap: 1rem; margin-top: 0.5rem;
+  animation: fadeSlideUp 0.9s ease both; animation-delay: 0.7s;
+}
+.btn-primary {
+  padding: 13px 32px; border-radius: 100px;
+  background: var(--cta); color: #fff;
+  font-size: 0.88rem; font-weight: 600; letter-spacing: 0.04em;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  box-shadow: 0 4px 20px rgba(244,162,97,0.4);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(244,162,97,0.5); background: #e8924e; }
+.btn-secondary {
+  padding: 13px 32px; border-radius: 100px;
+  background: rgba(255,255,255,0.6); backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  color: var(--text); font-size: 0.88rem; font-weight: 500;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.9); transform: translateY(-2px); }
+.hero-scroll-hint {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  color: var(--text-muted); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  animation: bounceY 2s ease-in-out infinite;
+}
+.scroll-line { width: 1px; height: 36px; background: linear-gradient(to bottom, transparent, var(--text-muted)); }
+@keyframes bounceY { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+@keyframes fadeSlideUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+
+/* ─── SECTION COMMON ─── */
+section { padding: 90px 5%; }
+.section-label {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--green); margin-bottom: 12px;
+}
+.section-label::before { content: ''; width: 28px; height: 1.5px; background: var(--green); }
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700; line-height: 1.1;
+  margin-bottom: 6px;
+}
+.section-title em { font-style: italic; color: var(--green); }
+.section-sub { color: var(--text-muted); font-size: 0.95rem; max-width: 480px; margin-bottom: 3rem; line-height: 1.6; }
+
+/* ─── CATEGORIES SECTION ─── */
+#categories { background: var(--bg); }
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+.cat-card {
+  border-radius: 20px; overflow: hidden; position: relative; cursor: pointer;
+  aspect-ratio: 4/3;
+  background: var(--card);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  transition: transform 0.35s cubic-bezier(.22,1,.36,1), box-shadow 0.35s;
+}
+.cat-card:nth-child(1) { grid-column: span 2; aspect-ratio: 2/1; }
+.cat-card:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 16px 40px rgba(0,0,0,0.13); }
+.cat-img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.5s cubic-bezier(.22,1,.36,1), filter 0.4s;
+}
+.cat-card:hover .cat-img { transform: scale(1.06); filter: brightness(0.85); }
+.cat-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(26,26,26,0.65) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+  display: flex; flex-direction: column; justify-content: flex-end; padding: 1.4rem;
+}
+.cat-name {
+  font-family: var(--font-impact);
+  font-size: 1.6rem; letter-spacing: 2px;
+  color: #fff; text-transform: uppercase;
+}
+.cat-count { font-size: 0.78rem; color: rgba(255,255,255,0.65); margin-top: 2px; }
+.cat-arrow {
+  position: absolute; top: 16px; right: 16px;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: rgba(255,255,255,0.15); backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.3);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 0.8rem;
+  opacity: 0; transform: scale(0.8);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.cat-card:hover .cat-arrow { opacity: 1; transform: scale(1); }
+
+/* ─── SHOP SECTION ─── */
+#shop { background: linear-gradient(180deg, #F5F3EF 0%, #EFEBe4 100%); }
+.shop-filters {
+  display: flex; gap: 0.7rem; flex-wrap: wrap; margin-bottom: 2.5rem;
+}
+.filter-btn {
+  padding: 8px 20px; border-radius: 100px;
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em;
+  border: 1.5px solid var(--border);
+  color: var(--text-muted); background: var(--card);
+  transition: all 0.22s;
+}
+.filter-btn:hover, .filter-btn.active {
+  border-color: var(--green); color: var(--green);
+  background: rgba(107,142,107,0.07);
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.4rem;
+}
+.product-card {
+  background: var(--card); border-radius: 20px; overflow: hidden;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.06);
+  transition: transform 0.35s cubic-bezier(.22,1,.36,1), box-shadow 0.35s;
+  position: relative;
+}
+.product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 48px rgba(0,0,0,0.12); }
+.product-img-wrap {
+  position: relative; overflow: hidden; aspect-ratio: 3/4; background: #f0ede6;
+}
+.product-img-wrap img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.45s cubic-bezier(.22,1,.36,1);
+}
+.product-card:hover .product-img-wrap img { transform: scale(1.07); }
+.product-badge {
+  position: absolute; top: 12px; left: 12px;
+  padding: 4px 12px; border-radius: 100px;
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.badge-new { background: var(--green); color: #fff; }
+.badge-hot { background: var(--cta); color: #fff; }
+.badge-sold { background: #ddd; color: var(--text-muted); }
+.product-wishlist {
+  position: absolute; top: 12px; right: 12px;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: rgba(255,255,255,0.85); backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; color: var(--text-muted);
+  transition: all 0.2s; opacity: 0;
+}
+.product-card:hover .product-wishlist { opacity: 1; }
+.product-wishlist:hover { color: #e04; background: #fff; transform: scale(1.1); }
+.product-wishlist.liked { color: #e04; opacity: 1; }
+.product-info { padding: 1rem 1.1rem 1.2rem; }
+.product-cat-tag { font-size: 0.68rem; color: var(--green); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+.product-name { font-family: var(--font-display); font-size: 1.02rem; font-weight: 600; margin-bottom: 4px; }
+.product-desc { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px; line-height: 1.5; }
+.product-price-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.product-price { font-family: var(--font-impact); font-size: 1.4rem; color: var(--text); letter-spacing: 1px; }
+.product-mrp { font-size: 0.8rem; color: var(--text-muted); text-decoration: line-through; margin-left: 6px; }
+.product-discount { font-size: 0.72rem; color: var(--green); font-weight: 600; margin-left: 6px; }
+.whatsapp-btn {
+  width: 100%; padding: 11px 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: #fff; font-size: 0.83rem; font-weight: 600; letter-spacing: 0.04em;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+  box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+}
+.whatsapp-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(37,211,102,0.45); filter: brightness(1.05); }
+.whatsapp-btn i { font-size: 1rem; }
+.whatsapp-btn.sold-out { background: #ddd; color: var(--text-muted); box-shadow: none; pointer-events: none; }
+
+/* Load more */
+.load-more-wrap { text-align: center; margin-top: 2.5rem; }
+.btn-load-more {
+  padding: 13px 40px; border-radius: 100px;
+  border: 1.5px solid var(--brown); color: var(--brown);
+  font-size: 0.88rem; font-weight: 500;
+  transition: all 0.22s;
+}
+.btn-load-more:hover { background: var(--brown); color: #fff; }
+
+/* ─── FEATURED / TRENDING SLIDER ─── */
+#featured { background: var(--text); color: #F5F3EF; overflow: hidden; }
+#featured .section-label { color: var(--cta); }
+#featured .section-label::before { background: var(--cta); }
+#featured .section-title { color: #F5F3EF; }
+#featured .section-sub { color: rgba(245,243,239,0.55); }
+.slider-wrap { position: relative; overflow: hidden; }
+.slider-track {
+  display: flex; gap: 1.2rem;
+  animation: autoScroll 28s linear infinite;
+  width: max-content;
+}
+.slider-track:hover { animation-play-state: paused; }
+@keyframes autoScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.slide-card {
+  width: 240px; flex-shrink: 0;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 18px; overflow: hidden;
+  transition: transform 0.3s, border-color 0.3s;
+}
+.slide-card:hover { transform: scale(1.03); border-color: rgba(244,162,97,0.4); }
+.slide-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; }
+.slide-info { padding: 0.9rem 1rem; }
+.slide-name { font-family: var(--font-display); font-size: 0.95rem; color: #F5F3EF; margin-bottom: 4px; }
+.slide-price { font-family: var(--font-impact); font-size: 1.25rem; color: var(--cta); letter-spacing: 1px; }
+.slider-fade-left  { position: absolute; top:0; left:0;  width: 80px; height: 100%; background: linear-gradient(to right, var(--text), transparent); pointer-events:none; z-index:2; }
+.slider-fade-right { position: absolute; top:0; right:0; width: 80px; height: 100%; background: linear-gradient(to left,  var(--text), transparent); pointer-events:none; z-index:2; }
+
+/* ─── ABOUT SECTION ─── */
+#about { background: var(--bg); }
+.about-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+}
+.about-img-wrap {
+  position: relative; border-radius: 24px; overflow: hidden;
+  aspect-ratio: 4/5;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.14);
+}
+.about-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.about-img-badge {
+  position: absolute; bottom: 24px; left: 24px;
+  background: rgba(245,243,239,0.92); backdrop-filter: blur(12px);
+  border-radius: 16px; padding: 14px 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  display: flex; align-items: center; gap: 12px;
+}
+.badge-icon { font-size: 2rem; }
+.badge-text strong { font-size: 1.3rem; font-family: var(--font-impact); letter-spacing: 1px; display: block; }
+.badge-text span { font-size: 0.75rem; color: var(--text-muted); }
+.about-content { display: flex; flex-direction: column; gap: 1.5rem; }
+.about-stat-row { display: flex; gap: 2rem; }
+.about-stat strong { font-family: var(--font-impact); font-size: 2.2rem; letter-spacing: 1px; color: var(--green); display: block; }
+.about-stat span { font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+.about-body { font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; }
+.about-values { display: flex; flex-direction: column; gap: 0.8rem; }
+.value-item { display: flex; align-items: center; gap: 12px; font-size: 0.88rem; color: var(--text); }
+.value-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cta); flex-shrink: 0; }
+
+/* ─── WHY US SECTION ─── */
+#why-us { background: linear-gradient(135deg, #EDE9E0 0%, #E8E3D8 100%); }
+.why-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; }
+.why-card {
+  background: var(--card); border-radius: 20px; padding: 2rem 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid var(--border);
+}
+.why-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.1); }
+.why-icon { font-size: 2rem; margin-bottom: 1rem; }
+.why-title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+.why-body { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--text); color: rgba(245,243,239,0.75);
+  padding: 5% 5% 2rem;
+}
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; margin-bottom: 3rem; }
+.footer-brand-logo { font-family: var(--font-impact); font-size: 2rem; letter-spacing: 3px; color: #F5F3EF; margin-bottom: 1rem; }
+.footer-brand-logo span { color: var(--green); }
+.footer-desc { font-size: 0.85rem; line-height: 1.7; margin-bottom: 1.5rem; }
+.footer-socials { display: flex; gap: 0.8rem; }
+.social-btn {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(245,243,239,0.7); font-size: 0.88rem;
+  transition: all 0.22s;
+}
+.social-btn:hover { background: var(--green); border-color: var(--green); color: #fff; transform: translateY(-3px); }
+.footer-col-title { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #F5F3EF; margin-bottom: 1.2rem; }
+.footer-links { display: flex; flex-direction: column; gap: 0.7rem; }
+.footer-links a { font-size: 0.85rem; color: rgba(245,243,239,0.55); transition: color 0.2s; }
+.footer-links a:hover { color: #F5F3EF; }
+.newsletter-form { display: flex; flex-direction: column; gap: 0.8rem; }
+.newsletter-input {
+  width: 100%; padding: 11px 16px; border-radius: 12px;
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14);
+  color: #F5F3EF; font-size: 0.85rem; font-family: inherit;
+  outline: none; transition: border-color 0.2s;
+}
+.newsletter-input::placeholder { color: rgba(245,243,239,0.35); }
+.newsletter-input:focus { border-color: rgba(107,142,107,0.5); }
+.newsletter-submit {
+  padding: 11px 0; border-radius: 12px;
+  background: var(--cta); color: #fff;
+  font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em;
+  transition: filter 0.2s, transform 0.2s;
+}
+.newsletter-submit:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.78rem; color: rgba(245,243,239,0.35);
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-bottom-links { display: flex; gap: 1.5rem; }
+.footer-bottom-links a { color: rgba(245,243,239,0.35); transition: color 0.2s; }
+.footer-bottom-links a:hover { color: rgba(245,243,239,0.75); }
+
+/* ─── WHATSAPP FLOATING BTN ─── */
+.wa-float {
+  position: fixed; bottom: 28px; right: 28px; z-index: 800;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; color: #fff;
+  animation: waPulse 2.5s ease-in-out infinite;
+  transition: transform 0.2s;
+}
+.wa-float:hover { transform: scale(1.12); }
+@keyframes waPulse {
+  0%,100% { box-shadow: 0 6px 24px rgba(37,211,102,0.45); }
+  50% { box-shadow: 0 6px 32px rgba(37,211,102,0.7), 0 0 0 12px rgba(37,211,102,0.1); }
+}
+
+/* ─── SEARCH MODAL ─── */
+.search-overlay {
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(245,243,239,0.97); backdrop-filter: blur(20px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s;
+}
+.search-overlay.open { opacity: 1; pointer-events: all; }
+.search-inner { width: 90%; max-width: 600px; position: relative; }
+.search-input {
+  width: 100%; padding: 18px 24px;
+  font-family: var(--font-display); font-size: 1.8rem;
+  border: none; border-bottom: 2px solid var(--text);
+  background: transparent; color: var(--text); outline: none;
+}
+.search-input::placeholder { color: var(--border); }
+.search-close {
+  position: absolute; top: -3rem; right: 0;
+  font-size: 1.5rem; color: var(--text-muted); background: none; border: none; cursor: pointer;
+  transition: color 0.2s; padding: 0;
+}
+.search-close:hover { color: var(--text); }
+.search-hint { margin-top: 1rem; font-size: 0.82rem; color: var(--text-muted); }
+
+/* ─── REVEAL ANIMATION ─── */
+.reveal {
+  opacity: 0; transform: translateY(36px);
+  transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1);
+}
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1100px) {
+  .products-grid { grid-template-columns: repeat(3,1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: block; }
+  .categories-grid { grid-template-columns: repeat(2,1fr); }
+  .cat-card:nth-child(1) { grid-column: span 2; }
+  .products-grid { grid-template-columns: repeat(2,1fr); }
+  .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-img-wrap { max-height: 400px; }
+  .why-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 600px) {
+  .products-grid { grid-template-columns: repeat(2,1fr); gap: 0.9rem; }
+  .categories-grid { grid-template-columns: 1fr; }
+  .cat-card:nth-child(1) { grid-column: span 1; aspect-ratio: 4/3; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-cta-row { flex-direction: column; align-items: center; }
+  .fi-2, .fi-3, .fi-6, .fi-7 { display: none; }
+  .about-stat-row { gap: 1.2rem; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar" id="navbar">
+  <div class="nav-logo">
+    <span class="nav-logo-dot"></span>
+    Wheels <span>Thrift</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#shop">Shop</a></li>
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#featured">New Arrivals</a></li>
+    <li><a href="#featured">Best Sellers</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-icon-btn" onclick="toggleSearch()" title="Search"><i class="fas fa-search"></i></button>
+    <button class="nav-icon-btn" title="Wishlist"><i class="far fa-heart"></i></button>
+    <button class="nav-hamburger" onclick="toggleMobileNav()"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#hero" onclick="toggleMobileNav()">Home</a>
+  <a href="#shop" onclick="toggleMobileNav()">Shop</a>
+  <a href="#categories" onclick="toggleMobileNav()">Categories</a>
+  <a href="#featured" onclick="toggleMobileNav()">New Arrivals</a>
+  <a href="#about" onclick="toggleMobileNav()">About</a>
+  <a href="#contact" onclick="toggleMobileNav()">Contact</a>
+</div>
+
+<!-- ── SEARCH OVERLAY ── -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-inner">
+    <button class="search-close" onclick="toggleSearch()"><i class="fas fa-times"></i></button>
+    <input class="search-input" type="text" placeholder="Search for pieces..." id="searchInput" />
+    <p class="search-hint">Try: Vintage Hoodie, Y2K Cap, Baggy Jeans…</p>
+  </div>
+</div>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-bg-circle"></div>
+  <div class="hero-bg-circle"></div>
+
+  <div class="floating-items" id="floatingItems">
+    <!-- Items rendered by JS with Unsplash fashion images -->
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-pill">
+      <span class="hero-pill-dot"></span>
+      Sustainable · Curated · Authentic
+    </div>
+    <h1 class="hero-title">
+      Wheels<br>
+      <span class="line2">Thrift</span>
+    </h1>
+    <p class="hero-tagline">Sustainable Style, Timeless Drip</p>
+    <div class="hero-cta-row">
+      <a href="#shop" class="btn-primary">Explore the Drop</a>
+      <a href="#categories" class="btn-secondary">Browse Categories</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ── CATEGORIES ── -->
+<section id="categories">
+  <div class="section-label reveal">Categories</div>
+  <h2 class="section-title reveal reveal-delay-1">Shop by <em>Vibe</em></h2>
+  <p class="section-sub reveal reveal-delay-2">Every aesthetic, every era — curated for your wardrobe.</p>
+  <div class="categories-grid reveal reveal-delay-2" id="categoriesGrid">
+    <!-- Rendered by JS -->
+  </div>
+</section>
+
+<!-- ── SHOP ── -->
+<section id="shop">
+  <div class="section-label reveal">The Drop</div>
+  <h2 class="section-title reveal reveal-delay-1">Fresh <em>Finds</em></h2>
+  <p class="section-sub reveal reveal-delay-2">One-of-a-kind pieces. Order directly on WhatsApp — fast &amp; easy.</p>
+  <div class="shop-filters reveal reveal-delay-2" id="shopFilters">
+    <button class="filter-btn active" data-filter="all">All Items</button>
+    <button class="filter-btn" data-filter="Streetwear">Streetwear</button>
+    <button class="filter-btn" data-filter="Vintage">Vintage</button>
+    <button class="filter-btn" data-filter="Hoodies">Hoodies</button>
+    <button class="filter-btn" data-filter="Caps">Caps</button>
+    <button class="filter-btn" data-filter="Sneakers">Sneakers</button>
+    <button class="filter-btn" data-filter="Accessories">Accessories</button>
+  </div>
+  <div class="products-grid" id="productsGrid">
+    <!-- Rendered by JS -->
+  </div>
+  <div class="load-more-wrap reveal">
+    <button class="btn-load-more" onclick="loadMore()">Load More Pieces</button>
+  </div>
+</section>
+
+<!-- ── FEATURED / TRENDING ── -->
+<section id="featured" style="padding-bottom:70px;">
+  <div class="section-label reveal">Trending Now</div>
+  <h2 class="section-title reveal reveal-delay-1">This Week's <em style="color:var(--cta)">Hot Drops</em></h2>
+  <p class="section-sub reveal reveal-delay-2">Move fast — these pieces don't stay long.</p>
+  <div class="slider-wrap reveal reveal-delay-2">
+    <div class="slider-fade-left"></div>
+    <div class="slider-fade-right"></div>
+    <div class="slider-track" id="sliderTrack">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY US ── -->
+<section id="why-us">
+  <div class="section-label reveal">Why Wheels</div>
+  <h2 class="section-title reveal reveal-delay-1">The <em>Difference</em></h2>
+  <div class="why-grid" style="margin-top:2.5rem;">
+    <div class="why-card reveal reveal-delay-1">
+      <div class="why-icon">♻️</div>
+      <div class="why-title">100% Sustainable</div>
+      <div class="why-body">Every item is pre-loved, cleaned, and quality-checked before it reaches you.</div>
+    </div>
+    <div class="why-card reveal reveal-delay-2">
+      <div class="why-icon">✨</div>
+      <div class="why-title">Curated Drops</div>
+      <div class="why-body">We handpick only the best finds — no mass-produced fast fashion, ever.</div>
+    </div>
+    <div class="why-card reveal reveal-delay-3">
+      <div class="why-icon">💬</div>
+      <div class="why-title">WhatsApp Orders</div>
+      <div class="why-body">Skip the complicated checkout. One tap on WhatsApp and your order is live.</div>
+    </div>
+    <div class="why-card reveal reveal-delay-4">
+      <div class="why-icon">🚚</div>
+      <div class="why-title">Fast Delivery</div>
+      <div class="why-body">Pan-India shipping with real-time updates. Your drip arrives in 3–5 days.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-img-wrap reveal">
+      <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=700&auto=format&fit=crop" alt="Wheels Thrift story" />
+      <div class="about-img-badge">
+        <span class="badge-icon">🌿</span>
+        <div class="badge-text">
+          <strong>Est. 2022</strong>
+          <span>Mumbai, India</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-content reveal reveal-delay-2">
+      <div>
+        <div class="section-label">Our Story</div>
+        <h2 class="section-title">Fashion That <em>Doesn't Cost</em> the Planet</h2>
+      </div>
+      <div class="about-stat-row">
+        <div class="about-stat"><strong>2,400+</strong><span>Happy customers</span></div>
+        <div class="about-stat"><strong>6,000+</strong><span>Pieces rehomed</span></div>
+        <div class="about-stat"><strong>4.9★</strong><span>Avg. rating</span></div>
+      </div>
+      <p class="about-body">Wheels Thrift started in a small Mumbai apartment with a single rack of pre-loved hoodies and a dream. We believed that great style shouldn't cost the earth — literally. Today we're a community of thrift lovers who believe fashion is most powerful when it's circular, intentional, and unapologetically personal.</p>
+      <p class="about-body">Every piece you order from us has been sourced, cleaned, photographed, and priced by hands that genuinely care. No bots, no warehouses — just real people with a passion for vintage drip.</p>
+      <div class="about-values">
+        <div class="value-item"><span class="value-dot"></span>Handpicked & quality-checked by our team</div>
+        <div class="value-item"><span class="value-dot"></span>Zero fast fashion, zero compromise</div>
+        <div class="value-item"><span class="value-dot"></span>Each purchase saves ~7kg of textile waste</div>
+        <div class="value-item"><span class="value-dot"></span>Community-first — follow us on Instagram</div>
+      </div>
+      <a href="https://wa.me/919876543210?text=Hi%20Wheels%20Thrift!%20I%20want%20to%20know%20more%20about%20your%20brand." target="_blank" class="btn-primary" style="width:fit-content; display:inline-flex; align-items:center; gap:8px;">
+        <i class="fab fa-whatsapp"></i> Chat With Us
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer id="contact">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-logo">Wheels <span>Thrift</span></div>
+      <p class="footer-desc">Sustainable style for the conscious generation. Shop pre-loved fashion, order on WhatsApp, and be part of the circular fashion movement.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-pinterest"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Shop</div>
+      <div class="footer-links">
+        <a href="#categories">Streetwear</a>
+        <a href="#categories">Vintage</a>
+        <a href="#categories">Hoodies</a>
+        <a href="#categories">Sneakers</a>
+        <a href="#categories">Accessories</a>
+        <a href="#featured">New Arrivals</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Help</div>
+      <div class="footer-links">
+        <a href="#">How to Order</a>
+        <a href="#">Shipping Info</a>
+        <a href="#">Returns & Refunds</a>
+        <a href="#">Size Guide</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Stay in the Loop</div>
+      <p style="font-size:0.82rem;margin-bottom:1rem;line-height:1.6;">New drops every week. Get notified first.</p>
+      <div class="newsletter-form">
+        <input class="newsletter-input" type="email" placeholder="your@email.com" />
+        <button class="newsletter-submit">Subscribe to Drops</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Wheels Thrift. Made with ♻️ in Mumbai.</span>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Help</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ── WHATSAPP FLOAT ── -->
+<a class="wa-float" href="https://wa.me/919876543210?text=Hi!%20I%20found%20you%20on%20Wheels%20Thrift%20and%20want%20to%20browse%20your%20collection." target="_blank" title="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- ── JAVASCRIPT ── -->
+<script>
+/* ─────────────────────────────────────────────
+   PRODUCTS DATA — EASILY EDITABLE JSON
+   Change names, prices, categories, images, badges here.
+   badge: 'new' | 'hot' | 'sold' | '' (empty = no badge)
+   soldOut: true | false
+────────────────────────────────────────────── */
+const WHATSAPP_NUMBER = "919876543210";
+
+const PRODUCTS = [
+  {
+    id: 1,
+    name: "Vintage Varsity Hoodie",
+    category: "Hoodies",
+    price: 849,
+    mrp: 1499,
+    description: "90s collegiate, barely worn",
+    badge: "hot",
+    soldOut: false,
+    image: "https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=500&auto=format&fit=crop"
+  },
+  {
+    id: 2,
+    name: "Y2K Snapback Cap",
+    category: "Caps",
+    price: 399,
+    mrp: 799,
+    description: "Embroidered logo, one size fits all",
+    badge: "new",
+    soldOut: false,
+    image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=500&auto=format&fit=crop"
+  },
+  {
+    id: 3,
+    name: "Baggy Cargo Trousers",
+    category: "Streetwear",
+    price: 699,
+    mrp: 1299,
+    description: "Khaki green, functional pockets",
+    badge: "hot",
+    soldOut: false,
+    image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=500&auto=format&fit=crop"
+  },
+  {
+    id: 4,
+    name: "Retro Graphic Tee",
+    category: "Vintage",
+    price: 449,
+    mrp: 899,
+    description: "Faded print, oversized fit",
+    badge: "new",
+    soldOut: false,
+    image: "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=500&auto=format&fit=crop"
+  },
+  {
+    id: 5,
+    name: "Nike Air Force 1 '95",
+    category: "Sneakers",
+    price: 2499,
+    mrp: 3999,
+    description: "Size 9 UK, barely used, crispy",
+    badge: "hot",
+    soldOut: false,
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop"
+  },
+  {
+    id: 6,
+    name: "Washed Denim Jacket",
+    category: "Vintage",
+    price: 999,
+    mrp: 1899,
+    description: "Light wash, M/L, cult classic",
+    badge: "",
+    soldOut: false,
+    image: "https://images.unsplash.com/photo-1551537482-f2075a1d41f2?w=500&auto=format&fit=crop"
+  },
+  {
+    id: 7,
+    name: "Skate Deck Tote Bag",
+    category: "Accessories",
+    price: 349,
+    mrp: 699,
+    description: "Canvas, hand-painted design",
+    badge: "new",
+    soldOut: false,
+    image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500&auto=format&fit=crop"
+  },
+  {
+    id: 8,
+    name: "Oversized Flannel Shirt",
+    category: "Streetwear",
+    price: 599,
+    mrp: 1199,
+    description: "Red plaid, XL, grunge ready",
+    badge: "",
+    soldOut: true,
+    image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500&auto=format&fit=crop"
+  },
+  {
+    id: 9,
+    name: "Vintage Coach Jacket",
+    category: "Vintage",
+    price: 1199,
+    mrp: 2299,
+    description: "Navy, 80s sports edition",
+    badge: "hot",
+    soldOut: false,
+    image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=500&auto=format&fit=crop"
+  },
+  {
+    id: 10,
+    name: "Chunky Chain Necklace",
+    category: "Accessories",
+    price: 279,
+    mrp: 599,
+    description: "Gold-tone, statement piece",
+    badge: "new",
+    soldOut: false,
+    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500&auto=format&fit=crop"
+  },
+  {
+    id: 11,
+    name: "Zip-up Hoodie",
+    category: "Hoodies",
+    price: 749,
+    mrp: 1399,
+    description: "Heather grey, full zip, unisex",
+    badge: "",
+    soldOut: false,
+    image: "https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=500&auto=format&fit=crop"
+  },
+  {
+    id: 12,
+    name: "Jordan 1 Mid Retro",
+    category: "Sneakers",
+    price: 3499,
+    mrp: 5999,
+    description: "Size 8 UK, bred colorway",
+    badge: "hot",
+    soldOut: false,
+    image: "https://images.unsplash.com/photo-1607522370275-f6bbbcbb2be9?w=500&auto=format&fit=crop"
+  }
+];
+
+/* ─── CATEGORIES DATA ─── */
+const CATEGORIES = [
+  { name: "Streetwear", count: "24 pieces", image: "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=700&auto=format&fit=crop" },
+  { name: "Vintage",    count: "18 pieces", image: "https://images.unsplash.com/photo-1551537482-f2075a1d41f2?w=500&auto=format&fit=crop" },
+  { name: "Hoodies",   count: "12 pieces", image: "https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=500&auto=format&fit=crop" },
+  { name: "Sneakers",  count: "9 pieces",  image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop" },
+  { name: "Accessories","count": "31 pieces", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500&auto=format&fit=crop" },
+];
+
+/* ─── FLOATING HERO ITEMS ─── */
+const HERO_ITEMS = [
+  { cls: "fi-1", src: "https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=300&auto=format&fit=crop", alt: "Hoodie" },
+  { cls: "fi-2", src: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=300&auto=format&fit=crop", alt: "Cap" },
+  { cls: "fi-3", src: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&auto=format&fit=crop", alt: "Sneakers" },
+  { cls: "fi-4", src: "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=300&auto=format&fit=crop", alt: "Tee" },
+  { cls: "fi-5", src: "https://images.unsplash.com/photo-1551537482-f2075a1d41f2?w=300&auto=format&fit=crop", alt: "Jacket" },
+  { cls: "fi-6", src: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=300&auto=format&fit=crop", alt: "Cargo" },
+  { cls: "fi-7", src: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=300&auto=format&fit=crop", alt: "Shirt" },
+  { cls: "fi-8", src: "https://images.unsplash.com/photo-1607522370275-f6bbbcbb2be9?w=300&auto=format&fit=crop", alt: "Jordan" },
+];
+
+/* ─── RENDER FLOATING ITEMS ─── */
+const floatingContainer = document.getElementById("floatingItems");
+HERO_ITEMS.forEach(item => {
+  const div = document.createElement("div");
+  div.className = `float-item ${item.cls}`;
+  div.innerHTML = `<img src="${item.src}" alt="${item.alt}" draggable="false" />`;
+  floatingContainer.appendChild(div);
+});
+
+/* ─── RENDER CATEGORIES ─── */
+const catGrid = document.getElementById("categoriesGrid");
+CATEGORIES.forEach((cat, i) => {
+  const div = document.createElement("div");
+  div.className = "cat-card reveal" + (i > 0 ? ` reveal-delay-${Math.min(i,4)}` : "");
+  div.innerHTML = `
+    <img class="cat-img" src="${cat.image}" alt="${cat.name}" />
+    <div class="cat-overlay">
+      <div class="cat-name">${cat.name}</div>
+      <div class="cat-count">${cat.count}</div>
+    </div>
+    <div class="cat-arrow"><i class="fas fa-arrow-right"></i></div>
+  `;
+  div.onclick = () => filterProducts(cat.name);
+  catGrid.appendChild(div);
+});
+
+/* ─── WHATSAPP ORDER FUNCTION ─── */
+function orderOnWhatsApp(name, price) {
+  const message = encodeURIComponent(
+    `Hi Wheels Thrift! 👋\n\nI want to order this product:\n\n*Product Name:* ${name}\n*Price:* ₹${price}\n\nPlease confirm availability and share payment details. Thank you!`
+  );
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
+}
+
+/* ─── RENDER PRODUCTS ─── */
+let currentFilter = "all";
+let visibleCount = 8;
+
+function discountPct(price, mrp) {
+  return Math.round((1 - price / mrp) * 100);
+}
+
+function renderProducts() {
+  const grid = document.getElementById("productsGrid");
+  grid.innerHTML = "";
+  const filtered = currentFilter === "all" ? PRODUCTS : PRODUCTS.filter(p => p.category === currentFilter);
+  const toShow = filtered.slice(0, visibleCount);
+  toShow.forEach((p, idx) => {
+    const disc = discountPct(p.price, p.mrp);
+    const badgeHTML = p.badge ? `<span class="product-badge badge-${p.badge === 'sold' || p.soldOut ? 'sold' : p.badge}">${p.soldOut ? 'Sold Out' : p.badge === 'new' ? 'New In' : '🔥 Hot'}</span>` : (p.soldOut ? `<span class="product-badge badge-sold">Sold Out</span>` : "");
+    const card = document.createElement("div");
+    card.className = `product-card reveal reveal-delay-${Math.min((idx % 4) + 1, 4)}`;
+    card.innerHTML = `
+      <div class="product-img-wrap">
+        <img src="${p.image}" alt="${p.name}" loading="lazy" />
+        ${badgeHTML}
+        <button class="product-wishlist" onclick="toggleWishlist(this)" title="Wishlist">
+          <i class="far fa-heart"></i>
+        </button>
+      </div>
+      <div class="product-info">
+        <div class="product-cat-tag">${p.category}</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-desc">${p.description}</div>
+        <div class="product-price-row">
+          <span>
+            <span class="product-price">₹${p.price}</span>
+            <span class="product-mrp">₹${p.mrp}</span>
+            <span class="product-discount">-${disc}%</span>
+          </span>
+        </div>
+        <button class="whatsapp-btn ${p.soldOut ? 'sold-out' : ''}"
+          onclick="${p.soldOut ? '' : `orderOnWhatsApp('${p.name}', '${p.price}')`}">
+          <i class="fab fa-whatsapp"></i>
+          ${p.soldOut ? 'Sold Out' : 'Order on WhatsApp'}
+        </button>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+  initReveal();
+  // Show/hide load more
+  const btn = document.querySelector(".btn-load-more");
+  if (btn) btn.style.display = filtered.length <= visibleCount ? "none" : "inline-block";
+}
+
+function loadMore() {
+  visibleCount += 4;
+  renderProducts();
+}
+
+/* Filter buttons */
+document.getElementById("shopFilters").addEventListener("click", e => {
+  const btn = e.target.closest(".filter-btn");
+  if (!btn) return;
+  document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  currentFilter = btn.dataset.filter;
+  visibleCount = 8;
+  renderProducts();
+});
+
+renderProducts();
+
+/* ─── WISHLIST TOGGLE ─── */
+function toggleWishlist(btn) {
+  btn.classList.toggle("liked");
+  btn.innerHTML = btn.classList.contains("liked") ? '<i class="fas fa-heart"></i>' : '<i class="far fa-heart"></i>';
+}
+
+/* ─── SLIDER ─── */
+function buildSlider() {
+  const track = document.getElementById("sliderTrack");
+  // Duplicate for infinite scroll
+  const items = [...PRODUCTS].sort(() => 0.5 - Math.random()).slice(0, 8);
+  const doubled = [...items, ...items];
+  doubled.forEach(p => {
+    const card = document.createElement("div");
+    card.className = "slide-card";
+    card.innerHTML = `
+      <img class="slide-img" src="${p.image}" alt="${p.name}" loading="lazy" />
+      <div class="slide-info">
+        <div class="slide-name">${p.name}</div>
+        <div class="slide-price">₹${p.price}</div>
+      </div>
+    `;
+    card.onclick = () => orderOnWhatsApp(p.name, p.price);
+    track.appendChild(card);
+  });
+}
+buildSlider();
+
+/* ─── NAVBAR SCROLL ─── */
+window.addEventListener("scroll", () => {
+  const nav = document.getElementById("navbar");
+  nav.classList.toggle("scrolled", window.scrollY > 40);
+
+  // Fade out hero floats on scroll
+  const hero = document.getElementById("hero");
+  const floats = document.getElementById("floatingItems");
+  const scrollRatio = Math.min(window.scrollY / (hero.offsetHeight * 0.5), 1);
+  floats.style.opacity = 1 - scrollRatio;
+  floats.style.transform = `scale(${1 + scrollRatio * 0.04})`;
+});
+
+/* ─── REVEAL ON SCROLL ─── */
+function initReveal() {
+  const els = document.querySelectorAll(".reveal:not(.visible)");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  els.forEach(el => observer.observe(el));
+}
+initReveal();
+
+/* ─── SEARCH ─── */
+function toggleSearch() {
+  const overlay = document.getElementById("searchOverlay");
+  overlay.classList.toggle("open");
+  if (overlay.classList.contains("open")) document.getElementById("searchInput").focus();
+}
+document.addEventListener("keydown", e => { if (e.key === "Escape") document.getElementById("searchOverlay").classList.remove("open"); });
+
+/* ─── MOBILE NAV ─── */
+function toggleMobileNav() {
+  const nav = document.getElementById("mobileNav");
+  nav.style.display = nav.classList.contains("open") ? "none" : "flex";
+  nav.classList.toggle("open");
+}
+</script>
+</body>
+</html>
