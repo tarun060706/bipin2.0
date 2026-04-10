@@ -1005,18 +1005,29 @@ HERO_ITEMS.forEach(item => {
 
 /* ─── RENDER CATEGORIES ─── */
 const catGrid = document.getElementById("categoriesGrid");
+const CATEGORY_PAGES = {
+  Streetwear: "streetwear.html",
+  Vintage: "vintage.html",
+  Hoodies: "hoodies.html",
+  Sneakers: "sneakers.html",
+  Accessories: "accessories.html"
+};
+
 CATEGORIES.forEach((cat, i) => {
   const div = document.createElement("div");
   div.className = "cat-card reveal" + (i > 0 ? ` reveal-delay-${Math.min(i,4)}` : "");
+  const categoryPage = CATEGORY_PAGES[cat.name] || "streetwear.html";
   div.innerHTML = `
+  <a class="category-item" href="${categoryPage}">
     <img class="cat-img" src="${cat.image}" alt="${cat.name}" />
-    <div class="cat-overlay">
-      <div class="cat-name">${cat.name}</div>
-      <div class="cat-count">${cat.count}</div>
-    </div>
-    <div class="cat-arrow"><i class="fas fa-arrow-right"></i></div>
+      <div class="cat-overlay">
+          <div class="cat-name">${cat.name}</div>
+            <div class="cat-count">${cat.count}</div>
+      </div>
+      <div class="cat-arrow"><i class="fas fa-arrow-right"></i></div>
+  </a>
+    
   `;
-  div.onclick = () => filterProducts(cat.name);
   catGrid.appendChild(div);
 });
 
