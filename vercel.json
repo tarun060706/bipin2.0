@@ -1,0 +1,24 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/frontend/index.html"
+    },
+    {
+      "source": "/index.html",
+      "destination": "/frontend/index.html"
+    },
+    {
+      "source": "/products/:path*",
+      "destination": "/frontend/products/:path*"
+    },
+    {
+      "source": "/productsimg/:path*",
+      "destination": "/frontend/productsimg/:path*"
+    },
+    {
+      "source": "/frontend/:path*",
+      "destination": "/frontend/:path*"
+    }
+  ]
+}
