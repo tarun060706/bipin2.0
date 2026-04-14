@@ -580,6 +580,43 @@ footer {
   .about-stat-row { gap: 1.2rem; }
   .footer-bottom { flex-direction: column; text-align: center; }
 }
+@media (max-width: 768px) {
+  body { padding-top: 64px; }
+  .navbar { height: 64px; padding: 0 16px; }
+  .nav-actions { gap: 0.6rem; }
+  #hero { padding-inline: 16px; }
+  .hero-content { width: min(100%, 440px); padding-inline: 6px; }
+  .hero-title { font-size: clamp(2.8rem, 14vw, 4.5rem); line-height: 1; }
+  .hero-tagline { font-size: 0.92rem; letter-spacing: 0.04em; }
+  .hero-cta-row { width: 100%; }
+  .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+  .section-title { font-size: clamp(2rem, 8vw, 2.9rem); }
+  .section-sub { margin-bottom: 2rem; }
+  .slide-card { width: 200px; }
+  .slider-fade-left, .slider-fade-right { width: 36px; }
+  .about-stat-row { flex-wrap: wrap; }
+  .footer-bottom-links { flex-wrap: wrap; justify-content: center; }
+  .search-inner { width: calc(100% - 32px); }
+  .wa-float { right: 18px; bottom: 18px; width: 52px; height: 52px; }
+}
+@media (max-width: 520px) {
+  .navbar { padding: 0 14px; }
+  .nav-logo { font-size: 1.35rem; letter-spacing: 2px; }
+  .hero-pill { padding: 6px 14px; font-size: 0.64rem; text-align: center; }
+  .hero-title { font-size: clamp(2.35rem, 15vw, 3.4rem); }
+  .hero-tagline { font-size: 0.85rem; }
+  .products-grid { grid-template-columns: 1fr; }
+  .filter-row { justify-content: center; }
+  .why-grid { grid-template-columns: 1fr; }
+  .slide-card { width: 170px; }
+  .slider-track { gap: 0.9rem; }
+  .about-stat-row { flex-direction: column; gap: 1rem; }
+  .about-img-badge { left: 14px; right: 14px; bottom: 14px; padding: 12px 14px; }
+  .footer-bottom-links { flex-direction: column; gap: 0.75rem; }
+  .search-inner { width: calc(100% - 20px); }
+  .search-hint { font-size: 0.76rem; text-align: center; }
+  .hero-scroll-hint { bottom: 18px; }
+}
 </style>
 </head>
 <body>
@@ -593,7 +630,7 @@ footer {
   <ul class="nav-links">
     <li><a href="#hero">Home</a></li>
     <li><a href="#shop">Shop</a></li>
-    <li><a href="#categories">Categories</a></li>
+    <!-- <li><a href="#categories">Categories</a></li> -->
     <li><a href="#featured">New Arrivals</a></li>
     <li><a href="#featured">Best Sellers</a></li>
     <li><a href="#about">About</a></li>
@@ -610,7 +647,7 @@ footer {
 <div class="mobile-nav" id="mobileNav">
   <a href="#hero" onclick="toggleMobileNav()">Home</a>
   <a href="#shop" onclick="toggleMobileNav()">Shop</a>
-  <a href="#categories" onclick="toggleMobileNav()">Categories</a>
+  <!-- <a href="#categories" onclick="toggleMobileNav()">Categories</a> -->
   <a href="#featured" onclick="toggleMobileNav()">New Arrivals</a>
   <a href="#about" onclick="toggleMobileNav()">About</a>
   <a href="#contact" onclick="toggleMobileNav()">Contact</a>
@@ -646,7 +683,7 @@ footer {
     <p class="hero-tagline">Sustainable Style, Timeless Drip</p>
     <div class="hero-cta-row">
       <a href="#shop" class="btn-primary">Explore the Drop</a>
-      <a href="#categories" class="btn-secondary">Browse Categories</a>
+      <!-- <a href="#categories" class="btn-secondary">Browse Categories</a> -->
     </div>
   </div>
 
@@ -824,7 +861,7 @@ footer {
 </footer>
 
 <!-- ── WHATSAPP FLOAT ── -->
-<a class="wa-float" href="https://wa.me/919876543210?text=Hi!%20I%20found%20you%20on%20Wheels%20Thrift%20and%20want%20to%20browse%20your%20collection." target="_blank" title="Chat on WhatsApp">
+<a class="wa-float" href="https://wa.me/+919531013515?text=Hi!%20I%20found%20you%20on%20Wheels%20Thrift%20and%20want%20to%20browse%20your%20collection." target="_blank" title="Chat on WhatsApp">
   <i class="fab fa-whatsapp"></i>
 </a>
 
@@ -841,124 +878,133 @@ const WHATSAPP_NUMBER = "919876543210";
 const PRODUCTS = [
   {
     id: 1,
-    name: "Vintage Varsity Hoodie",
-    category: "Hoodies",
-    price: 849,
-    mrp: 1499,
-    description: "90s collegiate, barely worn",
+    name: "Denim",
+    category: "",
+    price: 399,
+    mrp: 999,
+    description: "",
     badge: "hot",
     soldOut: false,
-    image: "https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=500&auto=format&fit=crop"
+    image: "productsimg/shirt.jpeg",
+    page: "products/product1.html"
   },
   {
     id: 2,
-    name: "Y2K Snapback Cap",
-    category: "Caps",
-    price: 399,
-    mrp: 799,
-    description: "Embroidered logo, one size fits all",
+    name: "Straight fit",
+    category: "",
+    price: 499,
+    mrp: 899,
+    description: "",
     badge: "new",
     soldOut: false,
-    image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=500&auto=format&fit=crop"
+    image: "productsimg/pant.jpeg",
+    page: "products/product2.html"
   },
   {
     id: 3,
-    name: "Baggy Cargo Trousers",
-    category: "Streetwear",
-    price: 699,
-    mrp: 1299,
-    description: "Khaki green, functional pockets",
+    name: "Baggy t-shirt",
+    category: "",
+    price: 399,
+    mrp: 799,
+    description: "",
     badge: "hot",
     soldOut: false,
-    image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=500&auto=format&fit=crop"
+    image: "productsimg/t-shirt.jpeg",
+    page: "products/products3.html",
   },
   {
     id: 4,
-    name: "Retro Graphic Tee",
-    category: "Vintage",
-    price: 449,
-    mrp: 899,
-    description: "Faded print, oversized fit",
+    name: "half baagy",
+    category: "",
+    price: 499,
+    mrp: 999,
+    description: "",
     badge: "new",
     soldOut: false,
-    image: "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=500&auto=format&fit=crop"
+    image: "productsimg/halfbaggypant.jpeg",
+    page: "products/products4.html",
   },
   {
     id: 5,
-    name: "Nike Air Force 1 '95",
-    category: "Sneakers",
-    price: 2499,
-    mrp: 3999,
-    description: "Size 9 UK, barely used, crispy",
+    name: "Vintage t-shirt ",
+    category: "",
+    price: 349,
+    mrp: 899,
+    description: "",
     badge: "hot",
     soldOut: false,
-    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop"
+    image: "productsimg/Vintage.jpeg",
+    page: "products/products5.html"
   },
   {
     id: 6,
-    name: "Washed Denim Jacket",
-    category: "Vintage",
-    price: 999,
-    mrp: 1899,
-    description: "Light wash, M/L, cult classic",
+    name: "Boxy shirt ",
+    category: "",
+    price: 399,
+    mrp: 799,
+    description: "",
     badge: "",
     soldOut: false,
-    image: "https://images.unsplash.com/photo-1551537482-f2075a1d41f2?w=500&auto=format&fit=crop"
+    image: "productsimg/Boxyshirt.jpeg",
+    page: "products/products6.html"
   },
   {
     id: 7,
-    name: "Skate Deck Tote Bag",
-    category: "Accessories",
+    name: "Crop t-shirt",
+    category: "",
     price: 349,
     mrp: 699,
-    description: "Canvas, hand-painted design",
+    description: "",
     badge: "new",
     soldOut: false,
-    image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500&auto=format&fit=crop"
+    image: "productsimg/Crop t-shirt.jpeg",
+    page: "products/products7.html"
   },
   {
     id: 8,
-    name: "Oversized Flannel Shirt",
-    category: "Streetwear",
-    price: 599,
+    name: "Straight fit",
+    category: "",
+    price: 449,
     mrp: 1199,
-    description: "Red plaid, XL, grunge ready",
+    description: "",
     badge: "",
-    soldOut: true,
-    image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500&auto=format&fit=crop"
+    soldOut: false,
+    image: "productsimg/straightfit2.jpeg",
+    page: "products/products8.html"
   },
   {
     id: 9,
-    name: "Vintage Coach Jacket",
-    category: "Vintage",
-    price: 1199,
-    mrp: 2299,
-    description: "Navy, 80s sports edition",
+    name: "t-shirt",
+    category: "",
+    price: 499,
+    mrp: 799,
+    description: "",
     badge: "hot",
     soldOut: false,
-    image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=500&auto=format&fit=crop"
+    image: "productsimg/t-shirt2.jpeg",
+    page: "products/products9.html"
   },
   {
     id: 10,
-    name: "Chunky Chain Necklace",
-    category: "Accessories",
+    name: "",
+    category: "",
     price: 279,
     mrp: 599,
-    description: "Gold-tone, statement piece",
+    description: "",
     badge: "new",
     soldOut: false,
-    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500&auto=format&fit=crop"
+    image: ""
   },
   {
     id: 11,
-    name: "Zip-up Hoodie",
-    category: "Hoodies",
+    name: "",
+    category: "",
     price: 749,
     mrp: 1399,
-    description: "Heather grey, full zip, unisex",
+    description: "",
     badge: "",
     soldOut: false,
-    image: "https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=500&auto=format&fit=crop"
+    image: ""
   },
   {
     id: 12,
@@ -966,10 +1012,10 @@ const PRODUCTS = [
     category: "Sneakers",
     price: 3499,
     mrp: 5999,
-    description: "Size 8 UK, bred colorway",
+    description: "",
     badge: "hot",
     soldOut: false,
-    image: "https://images.unsplash.com/photo-1607522370275-f6bbbcbb2be9?w=500&auto=format&fit=crop"
+    image: ""
   }
 ];
 
@@ -1039,7 +1085,11 @@ function orderOnWhatsApp(name, price) {
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
 }
 
-/* ─── RENDER PRODUCTS ─── */
+function openProductPage(page) {
+  window.location.href = page;
+}
+
+
 let currentFilter = "all";
 let visibleCount = 8;
 
@@ -1057,11 +1107,17 @@ function renderProducts() {
     const badgeHTML = p.badge ? `<span class="product-badge badge-${p.badge === 'sold' || p.soldOut ? 'sold' : p.badge}">${p.soldOut ? 'Sold Out' : p.badge === 'new' ? 'New In' : '🔥 Hot'}</span>` : (p.soldOut ? `<span class="product-badge badge-sold">Sold Out</span>` : "");
     const card = document.createElement("div");
     card.className = `product-card reveal reveal-delay-${Math.min((idx % 4) + 1, 4)}`;
+    if (p.page) {
+      card.style.cursor = "pointer";
+      card.onclick = () => {
+        window.location.href = p.page;
+      };
+    }
     card.innerHTML = `
       <div class="product-img-wrap">
         <img src="${p.image}" alt="${p.name}" loading="lazy" />
         ${badgeHTML}
-        <button class="product-wishlist" onclick="toggleWishlist(this)" title="Wishlist">
+        <button class="product-wishlist" onclick="event.stopPropagation(); toggleWishlist(this)" title="Wishlist">
           <i class="far fa-heart"></i>
         </button>
       </div>
@@ -1077,7 +1133,7 @@ function renderProducts() {
           </span>
         </div>
         <button class="whatsapp-btn ${p.soldOut ? 'sold-out' : ''}"
-          onclick="${p.soldOut ? '' : `orderOnWhatsApp('${p.name}', '${p.price}')`}">
+          onclick="event.stopPropagation(); ${p.soldOut ? '' : p.page ? `openProductPage('${p.page}')` : `orderOnWhatsApp('${p.name}', '${p.price}')`}">
           <i class="fab fa-whatsapp"></i>
           ${p.soldOut ? 'Sold Out' : 'Order on WhatsApp'}
         </button>
@@ -1177,3 +1233,4 @@ function toggleMobileNav() {
 </script>
 </body>
 </html>
+
