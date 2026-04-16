@@ -692,12 +692,11 @@ footer {
     <div class="scroll-line"></div>
   </div>
 </section>
-
 <!-- ── CATEGORIES ── -->
-<section id="categories">
+<!-- <section id="categories">
   <div class="section-label reveal">Categories</div>
   <h2 class="section-title reveal reveal-delay-1">Shop by <em>Vibe</em></h2>
-  <p class="section-sub reveal reveal-delay-2">Every aesthetic, every era — curated for your wardrobe.</p>
+  <p class="section-sub reveal reveal-delay-2">Every aesthetic, every era — curated for your wardrobe.</p> -->
   <div class="categories-grid reveal reveal-delay-2" id="categoriesGrid">
     <!-- Rendered by JS -->
   </div>
@@ -1020,13 +1019,13 @@ const PRODUCTS = [
 ];
 
 /* ─── CATEGORIES DATA ─── */
-const CATEGORIES = [
-  { name: "Streetwear", count: "24 pieces", image: "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=700&auto=format&fit=crop" },
-  { name: "Vintage",    count: "18 pieces", image: "https://images.unsplash.com/photo-1551537482-f2075a1d41f2?w=500&auto=format&fit=crop" },
-  { name: "Hoodies",   count: "12 pieces", image: "https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=500&auto=format&fit=crop" },
-  { name: "Sneakers",  count: "9 pieces",  image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop" },
-  { name: "Accessories","count": "31 pieces", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500&auto=format&fit=crop" },
-];
+//const CATEGORIES = [
+ // { name: "Streetwear", count: "24 pieces", image: "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=700&auto=format&fit=crop" },
+  //{ name: "Vintage",    count: "18 pieces", image: "https://images.unsplash.com/photo-1551537482-f2075a1d41f2?w=500&auto=format&fit=crop" },
+  //{ name: "Hoodies",   count: "12 pieces", image: "https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=500&auto=format&fit=crop" },
+  //{ name: "Sneakers",  count: "9 pieces",  image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop" },
+  //{ name: "Accessories","count": "31 pieces", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500&auto=format&fit=crop" },
+//];
 
 /* ─── FLOATING HERO ITEMS ─── */
 const HERO_ITEMS = [
@@ -1050,32 +1049,32 @@ HERO_ITEMS.forEach(item => {
 });
 
 /* ─── RENDER CATEGORIES ─── */
-const catGrid = document.getElementById("categoriesGrid");
-const CATEGORY_PAGES = {
-  Streetwear: "streetwear.html",
-  Vintage: "vintage.html",
-  Hoodies: "hoodies.html",
-  Sneakers: "sneakers.html",
-  Accessories: "accessories.html"
-};
+// const catGrid = document.getElementById("categoriesGrid");
+// const CATEGORY_PAGES = {
+//   Streetwear: "streetwear.html",
+//   Vintage: "vintage.html",
+//   Hoodies: "hoodies.html",
+//   Sneakers: "sneakers.html",
+//   Accessories: "accessories.html"
+// };
 
-CATEGORIES.forEach((cat, i) => {
-  const div = document.createElement("div");
-  div.className = "cat-card reveal" + (i > 0 ? ` reveal-delay-${Math.min(i,4)}` : "");
-  const categoryPage = CATEGORY_PAGES[cat.name] || "streetwear.html";
-  div.innerHTML = `
-  <a class="category-item" href="${categoryPage}">
-    <img class="cat-img" src="${cat.image}" alt="${cat.name}" />
-      <div class="cat-overlay">
-          <div class="cat-name">${cat.name}</div>
-            <div class="cat-count">${cat.count}</div>
-      </div>
-      <div class="cat-arrow"><i class="fas fa-arrow-right"></i></div>
-  </a>
+// CATEGORIES.forEach((cat, i) => {
+//   const div = document.createElement("div");
+//   div.className = "cat-card reveal" + (i > 0 ? ` reveal-delay-${Math.min(i,4)}` : "");
+//   const categoryPage = CATEGORY_PAGES[cat.name] || "streetwear.html";
+//   div.innerHTML = `
+//   <a class="category-item" href="${categoryPage}">
+//     <img class="cat-img" src="${cat.image}" alt="${cat.name}" />
+//       <div class="cat-overlay">
+//           <div class="cat-name">${cat.name}</div>
+//             <div class="cat-count">${cat.count}</div>
+//       </div>
+//       <div class="cat-arrow"><i class="fas fa-arrow-right"></i></div>
+//   </a>
     
-  `;
-  catGrid.appendChild(div);
-});
+//   `;
+//   catGrid.appendChild(div);
+// });
 
 /* ─── WHATSAPP ORDER FUNCTION ─── */
 function orderOnWhatsApp(name, price) {
@@ -1233,4 +1232,6 @@ function toggleMobileNav() {
 </script>
 </body>
 </html>
+
+
 
