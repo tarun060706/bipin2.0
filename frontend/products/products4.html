@@ -1015,19 +1015,19 @@ textarea {
     <!-- LEFT IMAGE -->
     <div class="image-box">
       <span class="badge">-50% OFF</span>
-      <img src="../productsimg/halfbaggypant.jpeg" alt="">
+      <img src="../productsimg/Unisex_baggy .jpeg" alt="Unisex Baggy">
     </div>
 
     <!-- RIGHT CONTENT -->
     <div class="details">
-      <h1>Halft Baggy</h1>
+      <h1>Unisex Baggy</h1>
 
       <div class="rating">
         ⭐⭐⭐⭐⭐ <span>(45 reviews)</span>
       </div>
 
       <div class="price">
-        <span class="new">₹ 499</span>
+        <span class="new">₹ 549</span>
         <span class="old">₹ 999</span>
       </div>
 
@@ -1040,7 +1040,7 @@ textarea {
       <div class="option">
         <p>Size</p>
         <div class="btn-group" data-option-group="size">
-          <button type="button" data-value="XS">30</button>
+          <button type="button" data-value="XS">34</button>
           <!-- <button type="button" data-value="S">S</button>
           <button type="button" data-value="M">M</button>
           <button type="button" data-value="L">L</button> -->
@@ -1247,6 +1247,14 @@ textarea {
     </div>
 </footer>
 <script>
+  function toggleSearch() {
+    const currentQuery = window.prompt("Search for a piece:");
+    if (currentQuery === null) return;
+    const encodedQuery = encodeURIComponent(currentQuery.trim());
+    const targetUrl = encodedQuery ? `../index.html?search=${encodedQuery}` : "../index.html";
+    window.location.href = targetUrl;
+  }
+
   function toggleMobileNav() {
     const nav = document.getElementById("mobileNav");
     if (!nav) return;

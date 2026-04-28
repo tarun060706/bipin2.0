@@ -1247,6 +1247,14 @@ textarea {
     </div>
 </footer>
 <script>
+  function toggleSearch() {
+    const currentQuery = window.prompt("Search for a piece:");
+    if (currentQuery === null) return;
+    const encodedQuery = encodeURIComponent(currentQuery.trim());
+    const targetUrl = encodedQuery ? `../index.html?search=${encodedQuery}` : "../index.html";
+    window.location.href = targetUrl;
+  }
+
   function toggleMobileNav() {
     const nav = document.getElementById("mobileNav");
     if (!nav) return;
